@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		96920A6120591522004A00B7 /* NOCChatViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96920A6020591522004A00B7 /* NOCChatViewController.storyboard */; };
-		96920A6420591540004A00B7 /* NOCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96920A6220591540004A00B7 /* NOCChatViewController.m */; };
-		96920A6520591540004A00B7 /* NOCChatViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 96920A6320591540004A00B7 /* NOCChatViewController.h */; };
 		E019EA7F1E1F359C004706DD /* NoChat.h in Headers */ = {isa = PBXBuildFile; fileRef = E019EA7D1E1F359C004706DD /* NoChat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E019EA8B1E1F360D004706DD /* NOCChatViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E019EA891E1F360D004706DD /* NOCChatViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E019EA8C1E1F360D004706DD /* NOCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E019EA8A1E1F360D004706DD /* NOCChatViewController.m */; };
 		E019EA961E1F3622004706DD /* NOCChatCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = E019EA8D1E1F3622004706DD /* NOCChatCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E019EA971E1F3622004706DD /* NOCChatCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E019EA8E1E1F3622004706DD /* NOCChatCollectionView.m */; };
 		E019EA981E1F3622004706DD /* NOCChatCollectionViewLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = E019EA8F1E1F3622004706DD /* NOCChatCollectionViewLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,12 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		96920A6020591522004A00B7 /* NOCChatViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NOCChatViewController.storyboard; sourceTree = "<group>"; };
-		96920A6220591540004A00B7 /* NOCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOCChatViewController.m; sourceTree = "<group>"; };
-		96920A6320591540004A00B7 /* NOCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOCChatViewController.h; sourceTree = "<group>"; };
 		E019EA7A1E1F359C004706DD /* NoChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NoChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E019EA7D1E1F359C004706DD /* NoChat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoChat.h; sourceTree = "<group>"; };
 		E019EA7E1E1F359C004706DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E019EA891E1F360D004706DD /* NOCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOCChatViewController.h; sourceTree = "<group>"; };
+		E019EA8A1E1F360D004706DD /* NOCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOCChatViewController.m; sourceTree = "<group>"; };
 		E019EA8D1E1F3622004706DD /* NOCChatCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOCChatCollectionView.h; sourceTree = "<group>"; };
 		E019EA8E1E1F3622004706DD /* NOCChatCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOCChatCollectionView.m; sourceTree = "<group>"; };
 		E019EA8F1E1F3622004706DD /* NOCChatCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOCChatCollectionViewLayout.h; sourceTree = "<group>"; };
@@ -96,9 +94,8 @@
 		E019EA861E1F35E1004706DD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				96920A6320591540004A00B7 /* NOCChatViewController.h */,
-				96920A6220591540004A00B7 /* NOCChatViewController.m */,
-				96920A6020591522004A00B7 /* NOCChatViewController.storyboard */,
+				E019EA891E1F360D004706DD /* NOCChatViewController.h */,
+				E019EA8A1E1F360D004706DD /* NOCChatViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -139,12 +136,12 @@
 				E019EA981E1F3622004706DD /* NOCChatCollectionViewLayout.h in Headers */,
 				E019EA9A1E1F3622004706DD /* NOCChatItemCell.h in Headers */,
 				E019EAA01E1F362C004706DD /* NOCChatItem.h in Headers */,
+				E019EA8B1E1F360D004706DD /* NOCChatViewController.h in Headers */,
 				E019EA961E1F3622004706DD /* NOCChatCollectionView.h in Headers */,
 				E019EA9C1E1F3622004706DD /* NOCChatItemCellLayout.h in Headers */,
 				E08C42991E41E6A9000EBA84 /* NOCChatInputPanel.h in Headers */,
 				E08C42951E41E684000EBA84 /* NOCChatContainerView.h in Headers */,
 				E019EA7F1E1F359C004706DD /* NoChat.h in Headers */,
-				96920A6520591540004A00B7 /* NOCChatViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +204,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96920A6120591522004A00B7 /* NOCChatViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,11 +215,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E019EA991E1F3622004706DD /* NOCChatCollectionViewLayout.m in Sources */,
+				E019EA8C1E1F360D004706DD /* NOCChatViewController.m in Sources */,
 				E08C429A1E41E6A9000EBA84 /* NOCChatInputPanel.m in Sources */,
 				E019EA971E1F3622004706DD /* NOCChatCollectionView.m in Sources */,
 				E019EA9B1E1F3622004706DD /* NOCChatItemCell.m in Sources */,
 				E08C42961E41E684000EBA84 /* NOCChatContainerView.m in Sources */,
-				96920A6420591540004A00B7 /* NOCChatViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

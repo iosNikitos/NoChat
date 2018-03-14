@@ -42,10 +42,7 @@
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    NSBundle *resourceBundle = [NSBundle bundleWithIdentifier:@"org.cocoapods.NoChat"];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"NOCChatViewController" bundle : resourceBundle];
-    self = [storyboard instantiateInitialViewController];
-    
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [self commonInit];
     }
@@ -226,18 +223,18 @@
 
 - (void)setupContainerView
 {
-    //_containerView = [[NOCChatContainerView alloc] initWithFrame:self.view.bounds];
+    _containerView = [[NOCChatContainerView alloc] initWithFrame:self.view.bounds];
     _containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _containerView.backgroundColor = [UIColor whiteColor];
     _containerView.clipsToBounds = YES;
-//    __weak typeof(self) weakSelf = self;
-//    _containerView.layoutForSize = ^(CGSize size) {
-//        __strong typeof(weakSelf) strongSelf = weakSelf;
-//        if (strongSelf.keyboardHeight < FLT_EPSILON) {
-//            [strongSelf performSizeChangesWithDuration:(strongSelf.isRotating ? 0.3 : 0.0) size:size];
-//        }
-//    };
-    //[self.view addSubview:_containerView];
+    __weak typeof(self) weakSelf = self;
+    _containerView.layoutForSize = ^(CGSize size) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (strongSelf.keyboardHeight < FLT_EPSILON) {
+            [strongSelf performSizeChangesWithDuration:(strongSelf.isRotating ? 0.3 : 0.0) size:size];
+        }
+    };
+    [self.view addSubview:_containerView];
 }
 
 - (void)setupBackgroundView
@@ -266,34 +263,34 @@
 
 - (void)setupCollectionView
 {
-//    CGSize collectionViewSize = _containerView.bounds.size;
-//
-//    _collectionLayout = [[NOCChatCollectionViewLayout alloc] initWithInverted:self.isInverted];
-//
-//    _collectionView = [[NOCChatCollectionView alloc] initWithFrame:CGRectMake(0, 0, collectionViewSize.width, collectionViewSize.height) collectionViewLayout:_collectionLayout];
-//    _collectionView.dataSource = self;
-//    _collectionView.delegate = self;
-//
-//    UIEdgeInsets originalInset = UIEdgeInsetsZero;
-//    UIEdgeInsets inset = originalInset;
-//    if (self.isInverted) {
-//        inset.top += self.chatInputContainerViewDefaultHeight;
-//    } else {
-//        inset.bottom += self.chatInputContainerViewDefaultHeight;
-//    }
-//    _collectionView.contentInset = inset;
-//
-//    if (self.isInverted) {
-//        _collectionView.transform = CGAffineTransformMake(1, 0, 0, -1, 0, 0);
-//    }
-//
-//    __weak typeof(self) weakSelf = self;
-//    _collectionView.tapAction = ^() {
-//        if (weakSelf) {
-//            [weakSelf.inputPanel endInputting:YES];
-//        }
-//    };
-//    [_containerView addSubview:_collectionView];
+    CGSize collectionViewSize = _containerView.bounds.size;
+    
+    _collectionLayout = [[NOCChatCollectionViewLayout alloc] initWithInverted:self.isInverted];
+    
+    _collectionView = [[NOCChatCollectionView alloc] initWithFrame:CGRectMake(0, 0, collectionViewSize.width, collectionViewSize.height) collectionViewLayout:_collectionLayout];
+    _collectionView.dataSource = self;
+    _collectionView.delegate = self;
+    
+    UIEdgeInsets originalInset = UIEdgeInsetsZero;
+    UIEdgeInsets inset = originalInset;
+    if (self.isInverted) {
+        inset.top += self.chatInputContainerViewDefaultHeight;
+    } else {
+        inset.bottom += self.chatInputContainerViewDefaultHeight;
+    }
+    _collectionView.contentInset = inset;
+
+    if (self.isInverted) {
+        _collectionView.transform = CGAffineTransformMake(1, 0, 0, -1, 0, 0);
+    }
+    
+    __weak typeof(self) weakSelf = self;
+    _collectionView.tapAction = ^() {
+        if (weakSelf) {
+            [weakSelf.inputPanel endInputting:YES];
+        }
+    };
+    [_containerView addSubview:_collectionView];
 }
 
 - (void)setupInputPanel
