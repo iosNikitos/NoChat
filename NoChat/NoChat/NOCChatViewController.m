@@ -80,6 +80,12 @@
     [self setupCollectionViewScrollToTopProxy];
     [self setupCollectionView];
     [self setupInputPanel];
+    
+    if (@available(iOS 11.0, *)) {
+        _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
 - (void)viewDidLoad
