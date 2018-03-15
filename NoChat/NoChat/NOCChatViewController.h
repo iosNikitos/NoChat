@@ -77,6 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (nullable Class)cellLayoutClassForItemType:(NSString *)type;
 + (nullable Class)inputPanelClass;
+- (void)setupInputPanel;
 - (void)registerChatItemCells;
 
 - (void)didTapStatusBar;
