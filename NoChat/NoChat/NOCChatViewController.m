@@ -86,6 +86,7 @@
     } else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    
 }
 
 - (void)viewDidLoad
@@ -173,7 +174,7 @@
             cell.itemView.transform = collectionView.transform;
         }
     }];
-
+    
     return cell;
 }
 
@@ -222,14 +223,13 @@
     _inverted = YES;
     _chatInputContainerViewDefaultHeight = 45;
     _scrollFractionalThreshold = 0.05;
-    self.automaticallyAdjustsScrollViewInsets = NO;
     self.hidesBottomBarWhenPushed = YES;
     [self registerKeyboardNotifications];
 }
 
 - (void)setupContainerView
 {
-    _containerView = [[NOCChatContainerView alloc] initWithFrame:self.view.bounds];
+    _containerView = [[NOCChatContainerView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
     _containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _containerView.backgroundColor = [UIColor whiteColor];
     _containerView.clipsToBounds = YES;
@@ -272,7 +272,6 @@
     CGSize collectionViewSize = _containerView.bounds.size;
     
     _collectionLayout = [[NOCChatCollectionViewLayout alloc] initWithInverted:self.isInverted];
-    
     _collectionView = [[NOCChatCollectionView alloc] initWithFrame:CGRectMake(0, 0, collectionViewSize.width, collectionViewSize.height) collectionViewLayout:_collectionLayout];
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
@@ -280,12 +279,13 @@
     UIEdgeInsets originalInset = UIEdgeInsetsZero;
     UIEdgeInsets inset = originalInset;
     if (self.isInverted) {
-        inset.top += self.chatInputContainerViewDefaultHeight;
+        inset.top += self.chatInputContainerViewDefaultHeight ;
     } else {
-        inset.bottom += self.chatInputContainerViewDefaultHeight;
+        inset.bottom += self.chatInputContainerViewDefaultHeight + self.view.safeAreaInsets.bottom;
     }
+    
     _collectionView.contentInset = inset;
-
+    _collectionView.clipsToBounds = YES;
     if (self.isInverted) {
         _collectionView.transform = CGAffineTransformMake(1, 0, 0, -1, 0, 0);
     }
@@ -406,6 +406,7 @@
     } else {
         inset.top = topPadding;
     }
+    
     self.collectionView.contentInset = inset;
 }
 
@@ -442,7 +443,7 @@
         contentOffset.y = MAX(contentOffset.y, -inset.top);
     }
     
-    if (duration > DBL_EPSILON) {        
+    if (duration > DBL_EPSILON) {
         [UIView animateWithDuration:duration delay:0 options:(animationCurve << 16) | UIViewAnimationOptionBeginFromCurrentState animations:^{
             self.collectionView.contentInset = inset;
             if (!CGPointEqualToPoint(contentOffset, originalContentOffset)) {
@@ -675,8 +676,8 @@
     }
 }
 
-- (void)deleteLayoutsAtIndexes:(NSIndexSet *)indexes animated:(BOOL)animated
-{
+- (void)deleteLayoutsAtIndexes:(NSIndexSet *)indexes animated:(BOOL)animated {
+    
     NSMutableArray *insertedPaths = [[NSMutableArray alloc] init];
     
     __block NSUInteger i = 0;
@@ -698,6 +699,7 @@
         [collectionView reloadData];
         [collectionView layoutIfNeeded];
     }
+    
 }
 
 - (void)updateLayoutAtIndex:(NSUInteger)index toLayout:(id<NOCChatItemCellLayout>)layout animated:(BOOL)animated
@@ -800,7 +802,7 @@ typedef NS_ENUM(NSUInteger, NOCChatCellVerticalEdge) {
     
     CGFloat offsetY = -collectionView.contentInset.top;
     CGPoint contentOffset = CGPointMake(collectionView.contentOffset.x, offsetY);
-
+    
     [collectionView setContentOffset:contentOffset animated:animated];
 }
 
