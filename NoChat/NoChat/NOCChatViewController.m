@@ -229,7 +229,8 @@
 
 - (void)setupContainerView
 {
-    _containerView = [[NOCChatContainerView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    CGFloat barHeight = self.navigationController.navigationBar.frame.size.height;
+    _containerView = [[NOCChatContainerView alloc] initWithFrame:CGRectMake(0, barHeight + 30, self.view.bounds.size.width, self.view.bounds.size.height -  barHeight - 30)];
     _containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _containerView.backgroundColor = [UIColor whiteColor];
     _containerView.clipsToBounds = YES;
@@ -881,3 +882,4 @@ typedef NS_ENUM(NSUInteger, NOCChatCellVerticalEdge) {
 }
 
 @end
+
