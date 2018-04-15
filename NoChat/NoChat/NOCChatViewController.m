@@ -230,7 +230,7 @@
 - (void)setupContainerView
 {
     CGFloat barHeight = self.navigationController.navigationBar.frame.size.height;
-    _containerView = [[NOCChatContainerView alloc] initWithFrame:CGRectMake(0, barHeight + 30, self.view.bounds.size.width, self.view.bounds.size.height -  barHeight - 30)];
+    _containerView = [[NOCChatContainerView alloc] initWithFrame:CGRectMake(0, barHeight + 12, self.view.bounds.size.width, self.view.bounds.size.height -  barHeight - 12)];
     _containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _containerView.backgroundColor = [UIColor whiteColor];
     _containerView.clipsToBounds = YES;
@@ -282,7 +282,12 @@
     if (self.isInverted) {
         inset.top += self.chatInputContainerViewDefaultHeight ;
     } else {
-        inset.bottom += self.chatInputContainerViewDefaultHeight + self.view.safeAreaInsets.bottom;
+        if (@available(iOS 11.0, *)) {
+            inset.bottom += self.chatInputContainerViewDefaultHeight + self.view.safeAreaInsets.bottom;
+            inset.bottom += [[UIScreen mainScreen] nativeBounds].size.height == 2436 ? 4 : 0;
+        } else {
+            inset.bottom += self.chatInputContainerViewDefaultHeight;
+        }
     }
     
     _collectionView.contentInset = inset;

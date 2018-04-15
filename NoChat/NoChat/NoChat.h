@@ -28,11 +28,14 @@
 FOUNDATION_EXPORT double NoChatVersionNumber;
 FOUNDATION_EXPORT const unsigned char NoChatVersionString[];
 
-#import <NoChat/NOCChatItem.h>
-#import <NoChat/NOCChatContainerView.h>
-#import <NoChat/NOCChatCollectionView.h>
-#import <NoChat/NOCChatCollectionViewLayout.h>
-#import <NoChat/NOCChatItemCell.h>
-#import <NoChat/NOCChatItemCellLayout.h>
-#import <NoChat/NOCChatInputPanel.h>
-#import <NoChat/NoCChatViewController.h>
+#import "NOCChatItem.h"
+#import "NOCChatContainerView.h"
+#import "NOCChatCollectionView.h"
+#import "NOCChatCollectionViewLayout.h"
+#import "NOCChatItemCell.h"
+#import "NOCChatItemCellLayout.h"
+#import "NOCChatInputPanel.h"
+#import "NoCChatViewController.h"
+
+
+
